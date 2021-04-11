@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>com.github.nifengxiao.mvparmstemplateplugin</id>
+    <name>MVPArmsTemplatePlugin</name>
+    <vendor>nifengxiao</vendor>
+
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.github.nifengxiao.mvparmstemplateplugin.services.MyApplicationService" />
+        <projectService
+            serviceImplementation="com.github.nifengxiao.mvparmstemplateplugin.services.MyProjectService" />
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.nifengxiao.mvparmstemplateplugin.listeners.MyProjectManagerListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
+    </applicationListeners>
+
+    <!--    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">-->
+    <!--        <wizardTemplateProvider implementation="other.SamplePluginTemplateProviderImpl" />-->
+    <!--    </extensions>-->
+
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="mvparms.SamplePluginTemplateProviderImpl" />
+    </extensions>
+</idea-plugin>
